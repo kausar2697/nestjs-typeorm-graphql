@@ -32,7 +32,7 @@ export class UsersService {
 
 
   async getUser(){
-    return await this.userRepository;
+    return await this.userRepository.find();
        
        
    }

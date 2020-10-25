@@ -1,23 +1,23 @@
 
-import { Query, Resolver } from "@nestjs/graphql";
+import { Query, Resolver, ResolveField ,Parent} from "@nestjs/graphql";
 import { Auth, User } from "./user.entity";
 import { UsersService } from "./users.service";
 
 
 
-@Resolver()
+@Resolver(of => User)
 export class UserResolver {
     constructor(private readonly usersService: UsersService ) {}
 
-  @Query()
+  @Query(() => [User])
   async user() {
     return this.usersService.getUser();
   }
 
-//   @Query(() => [Auth])
-//   async auth() {
-//     return this.usersService.getUser();
-//   }
+  @ResolveField(() => [User])
+  async auth(@Parent() user: User){
+    return this.usersService.getUser();
+  }
 
 
 //   @Mutation(() => CatType)

@@ -1,11 +1,4 @@
 
-type User {
-  id: ID!
-  username: String!
-  password: String!
-  auth: [Auth!]
-}
-
 type Auth {
   id: String!
   username: String!
@@ -14,6 +7,16 @@ type Auth {
 
 }
 
+type User {
+  id: ID!
+  username: String!
+  password: String!
+  auth: Auth!
+}
+
+
+
 type Query {
   user: [User!]
+  auth : [Auth!]
 }

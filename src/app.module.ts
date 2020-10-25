@@ -10,7 +10,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 
 @Module({
   imports: [ProductsModule,GraphQLModule.forRoot({
-    typePaths: ['**/*.graphql'],
+    autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+    // typePaths: ['**/*.graphql'],
     include: [ProductsModule,AuthModule, UsersModule]
   }),TypeOrmModule.forRoot({
     type: 'mongodb',
