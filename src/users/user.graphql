@@ -1,0 +1,19 @@
+
+type User {
+  id: ID!
+  username: String!
+  password: String!
+  auth: [Auth!]
+}
+
+type Auth {
+  id: String!
+  username: String!
+  userId: String!
+  logTime: String!
+
+}
+
+type Query {
+  user: [User!]
+}

@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID!
+  username: String!
+  password: String!
+}
+
+type Auth {
+  id: String!
+  username: String!
+  userId: String!
+  logTime: String!
+}
+
+type Product {
+  id: ID!
+  title: String!
+  desc: String!
+  price: Float!
+  updatedBy: String!
+  updatedAt: DateTime!
+  createdBy: String!
+  createdAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  hello: String!
+  product: [Product!]!
+  singleProduct: [Product!]!
+  user: [User!]!
+  auth: [Auth!]!
+}
